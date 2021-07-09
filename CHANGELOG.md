@@ -1,120 +1,119 @@
-## 更新
-v2.2.1更新
-<br/>此次更新由k6o短链接提供
+## Update
+v2.2.1 update
+<br/>This update is provided by k6o short link
   <p>email: Gary@dtnetwork.top</p>
-<br/>增加英文翻译
+<br/>Add English translation
 
 
-v2.2.0更新
-<br/>此次更新由k6o短链接提供
+v2.2.0 update
+<br/>This update is provided by k6o short link
   <p>email: Gary@dtnetwork.top</p>
-<br/>1.修复oauth登录跳转地址
-<br/>2.主页，提示语增加emoji表情
-<br/>3.感觉管理菜单里的自动更新不实用，先注释掉了，有需要可以自行恢复
-<br/>4.优化了标签栏显示
-<br/>5.短链接生成后增加点击复制提示
-<br/>6.增加了建站日期显示，请自行到footer.php修改建站日期
-<br/>7.增加页脚返回主页的按钮，方便移动端使用
+<br/>1. Fix oauth login redirect address
+<br/>2. Homepage, add emoji expressions to the prompt
+<br/>3. I feel that the automatic update in the management menu is not practical, please comment it out first, and you can restore it if necessary.
+<br/>4. Optimized the display of the tab bar
+<br/>5. Add a click to copy prompt after the short link is generated
+<br/>6. Added the display of site establishment date, please go to footer.php to modify site establishment date
+<br/>7. Add a footer button to return to the home page, which is convenient for mobile use
 
-计划在以后的更新中加入谷歌验证码和统计代码配置页面，可能还会加入主页音频和公告栏。
-
-
-v2.1.2更新
-<br/>1.解决密码BUG
-<br/>2.修复oauth登录
-<br/>3.解决时间戳显示问题
-<br/>4.后台显示超长度用省略号替代
-<br/>5.短域301跳转
-
-v2.1.1更新
-<br/>1.Oauth平台更新，Urlshorting对应更新
-
-v2.1.0更新
-<br/>1.新增使用星辰oauth平台登录后台
-<br/>2.时间改用时间戳，修复后台时间显示排序的问题
-<br/>3.密语短域加密的输入密码界面修复,防止出现问题
-
-v2.0.1更新
-<br/>1.二维码采用qrcode.jquery.js生成
-<br/>2.修改API功能及字段值
-
-v2.0.0更新
-<br/>1.后台全新优化,新增服务器信息显示,官方信息获取
-<br/>2.支持自定义短域.
-<br/>3.支持短域/密语加密!
-
-v1.9.0更新(强烈建议更新,全新优化)
-<br/>1.后台全新优化,新增服务器信息显示,官方信息获取
-<br/>2.跳转停留新增网址安全检测(来自腾讯网址检测平台)
-<br/>3.检查更新界面全面优化,预计两个版本内支持一键更新.
-
-v1.8.0更新
-<br />1.持续优化操作体验.
-<br />2.后台新增偏好设置,可以手动设置QQ/微信内打开是否提示浏览器打开
-
-v1.7.3更新
-<br />1.短域页面新增复制
-
-v1.7.2更新
-<br />1.修复一个因为,,变量顺序导致qrcode生成名称一样的问题
-<br />2.Readme.md中的伪静态规则改成markdown代码格式//不知道有多少人//直接在伪静态里加了
-气死我了...
+It is planned to add Google verification code and statistical code configuration page in future updates, and may also add home audio and bulletin boards.
 
 
+v2.1.2 update
+<br/>1. Solve the password bug
+<br/>2. Fix oauth login
+<br/>3. Solve the problem of timestamp display
+<br/>4. The background display overlength is replaced by an ellipsis
+<br/>5. Short domain 301 jump
 
-v1.7.1更新
+v2.1.1 update
+<br/>1. Oauth platform update, Urlshorting corresponding update
+
+v2.1.0 update
+<br/>1. Added the use of the star oauth platform to log in to the background
+<br/>2. Change the time to time stamp, fix the problem of sorting the time display in the background
+<br/>3. The password input interface of password short domain encryption is repaired to prevent problems
+
+v2.0.1 update
+<br/>1. The QR code is generated using qrcode.jquery.js
+<br/>2. Modify API functions and field values
+
+v2.0.0 update
+<br/>1. Newly optimized background, new server information display, official information acquisition
+<br/>2. Support custom short domain.
+<br/>3. Support short domain/password encryption!
+
+v1.9.0 update (strongly recommended update, new optimization)
+<br/>1. Newly optimized background, new server information display, official information acquisition
+<br/>2. Jump to stay and add new URL security detection (from Tencent URL detection platform)
+<br/>3. The check update interface is fully optimized, and it is expected that one-click update will be supported within the two versions.
+
+v1.8.0 update
+<br />1. Continue to optimize the operating experience.
+<br />2. There is a new preference setting in the background, you can manually set whether to open in QQ/WeChat or not to prompt the browser to open
+
+v1.7.3 update
+<br />1. New copy of short domain page
+
+v1.7.2 update
+<br />1. Fix a problem that qrcode generates the same name because of,, the order of variables
+<br />2. The pseudo-static rules in the Readme.md are changed to markdown code format // I don’t know how many people // add directly to the pseudo-static
+I'm furious...
+
+
+
+v1.7.1 update
 <br />Bug fixed.
 
-v1.7.0更新:
-<br />1.首页以及后台更新界面改为ajax请求.
-<br />2.Api中增加二维码,同时修改Api返回值.
-<br />3.修改整体样式.
-<br />4.移除了公告.
+v1.7.0 update:
+<br />1. The homepage and background update interface is changed to ajax request.
+<br />2. Add a QR code to Api and modify the Api return value at the same time.
+<br />3. Modify the overall style.
+<br />4. Removed the announcement.
 <br />5.Bug Fixed
 
-v1.6.5更新:
-<br />1.管理页面-短域管理支持翻页显示.
-<br />2.微信qq打开要求跳转界面更新.
-<br />3.config.php内容存储至数据库.
+v1.6.5 update:
+<br />1. Management page-short domain management supports page turning display.
+<br />2. WeChat qq opens and requires the jump interface to be updated.
+<br />3.The content of config.php is stored in the database.
 
-v1.6.4更新:
-<br />1.取消Url跳转时的样式,加快了跳转速度.
-<br />2.后台新增检查更新.
-<br />3.新增换行机制,密语不会出现不换行的情况了.
+v1.6.4 update:
+<br />1. Cancel the style when Url jumps, and speed up the jump.
+<br />2. Added check for updates in the background.
+<br />3. Added a new line-wrapping mechanism, the secret words will not appear to be unwrapped.
 
-v1.6.3更新:
-<br/>1.修改网址缩短核心架构,修改index.php的缩短处理方式,防止因服务器dns问题导致的缩短失败.
-<br/>2.增加网址跳转时将中文字符自动修改为encode编码,放置了因为字符编码原因造成的乱码问题.
-<br/>3.提醒:使用api时请将URL中所有的&替换为~,防止因PHP GET的原因造成只缩短URL中第一个&前面的URL的问题.
+v1.6.3 update:
+<br/>1. Modify the core structure of URL shortening, modify the shortening processing method of index.php, to prevent shortening failure caused by server dns problems.
+<br/>2. When adding a URL jump, the Chinese characters are automatically modified to encode encoding, and the problem of garbled characters caused by character encoding is placed.
+<br/>3. Reminder: When using api, please replace all & in the URL with ~ to prevent the problem of shortening only the first & in front of the URL due to PHP GET.
 
-v1.6更新:
-<br/>1.感谢@Hiram·Wong使用MDUI对短域界面做了进一步美化.
-<br/>2.新建notice数据表,支持首页显示公告信息.
+v1.6 update:
+<br/>1. Thank you @Hiram·Wong for using MDUI to further beautify the short domain interface.
+<br/>2. Create a new notice data table to support the display of notice information on the home page.
 
-v1.5更新：
-<br/>1.新增install.php安装引导程序,自动上传mysql数据,开启自动安装新时代....
-<br/>2.在qrcode文件夹中防止无用文件,防止Github吞文件夹(该无用文件会在第一次使用时自动删除)
+v1.5 update:
+<br/>1. Add install.php installation guide program, automatically upload mysql data, start a new era of automatic installation...
+<br/>2. Prevent useless files in the qrcode folder and prevent Github from swallowing the folder (the useless file will be automatically deleted when it is used for the first time)
 
-v1.4.4更新:
-<br/>1.新增后台功能.（现在你可以在后台ban掉用户ip或短域）
-<br/>2.为防止随意修改版权,现添加自动将您的网站域名上传到我的数据库的功能(只会记录您的网站域名以及服务器ip,绝不外泄.)
-<br/>TIP:下载改源码即代表您同意第2点!
+v1.4.4 update:
+<br/>1. New background function. (Now you can ban user ip or short domain in the background)
+<br/>2. In order to prevent the copyright from being modified at will, the function of automatically uploading your website domain name to my database is now added (only your website domain name and server ip will be recorded, and will never be leaked.)
+<br/>TIP: By downloading the modified source code, you agree to point 2!
 
-v1.4更新:
-<br/>1.新增密语功能.
-<br/>2.新增后台(mysql-access表)统计访问者.
-<br/>3.修改api get的值.
-<br/>4.修改架构.
+v1.4 update:
+<br/>1. Newly added secret language function.
+<br/>2. Add background (mysql-access table) to count visitors.
+<br/>3. Modify the value of api get.
+<br/>4. Modify the architecture.
 
 
-v1.3更新:
-<br/>1.修改核心功能的结构及算法.
-<br/>2.新增显示二维码功能.
-<br/>3.首页显示api使用教程.
-<br/>4.修改了api返回值.
+v1.3 update:
+<br/>1. Modify the structure and algorithm of the core function.
+<br/>2. Added the function of displaying QR code.
+<br/>3. The home page shows the api usage tutorial.
+<br/>4. Modify the api return value.
 
-v1.2更新:
-<br/>1.现在在QQ中打开会提示选择浏览器打开!
-<br/>2.菜单栏变得更好看了.
-<br/>3:更新了api功能!
-
+v1.2 update:
+<br/>1. Now opening in QQ will prompt to select a browser to open!
+<br/>2. The menu bar has become better.
+<br/>3: Updated the api function!
