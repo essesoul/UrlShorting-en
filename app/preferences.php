@@ -8,15 +8,15 @@ if(md5($_SESSION['password']) !== $pass)
 {
   $json = [
       'code' => '1001',
-      'msg' => '非法的访问'
+      'msg' => 'Illegal access'
     ];
   exit(json_encode($json,JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
 }
-//安全检测
+//Safety inspection
 $method = $_GET['method'];
 $content = $_GET['content'];
 $status = $_GET['status'];
-//基础信息获取
+//Basic information acquisition
 function getResult($conn,$which)
 {
    return mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `config` WHERE `type` = '$which'"))['content'];
@@ -30,4 +30,4 @@ switch ($method) {
     exit(json_encode($json,JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
   break;
 }
-//设置协议头
+//Set the protocol header

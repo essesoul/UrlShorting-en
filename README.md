@@ -7,17 +7,17 @@
 <a href="https://github.com/soxft/URLshorting/network/members"> 
 <img src="https://img.shields.io/github/forks/soxft/URLshorting.svg" alt="GitHub forks"></a> 
 
-## 简介
+## Introduction
 
-一个url网址缩短平台.
+A URL shortening platform.
 
-demo：[K6o短链接](https://www.k6o.top/)
+demo：[K6o short link](https://www.k6o.top/)
 
-## 安装方法
-1.下载源码.<br/>
-2.上传至你的网站根目录.<br/>
-3.访问网站域名填写mysql等信息进行安装<br/>
-4.修改网站伪静态配置:<br/>
+## installation method
+1. Download the source code.<br/>
+2. Upload to the root directory of your website.<br/>
+3. Visit the website domain name and fill in mysql and other information to install<br/>
+4. Modify the pseudo-static configuration of the website:<br/>
 
 Nginx:  
 ```
@@ -36,7 +36,7 @@ Apache:
     </IfModule>
 ```
 
-IIS (仅供参考,未进行测试):
+IIS (For reference only, not tested):
 ```
   <rule name="tool.apizl.com rewriteTools1" patternSyntax="ECMAScript" stopProcessing="true">
     <match url="^/(.*)" ignoreCase="false" />
@@ -46,23 +46,15 @@ IIS (仅供参考,未进行测试):
 ```
 
 
-<br/>5.访问网站进行确认.
+<br/>5.Visit the website to confirm.
 
-## 版权
-xcsoft版权所有 改源码依据apache2开源协议开源,请不要修改版权信息！
-  <p>Secondary Developed By k6o.top</p>
-  <p>Contact us: Gary@dtnetwork.top</p>
+## copyright
+xcsoft All rights reserved. The source code is open sourced according to the apache2 open source agreement. Please do not modify the copyright information!
+   <p>Secondary Developed By k6o.top</p>
+   <p>Contact us: Gary@dtnetwork.top</p>
 
-## 更新
-v2.2.0更新
-<br/>此次更新由k6o短链接提供
-  <p>email: Gary@dtnetwork.top</p>
-<br/>1.修复oauth登录跳转地址
-<br/>2.主页，提示语增加emoji表情
-<br/>3.感觉管理菜单里的自动更新不实用，先注释掉了，有需要可以自行恢复
-<br/>4.优化了标签栏显示
-<br/>5.短链接生成后增加点击复制提示
-<br/>6.增加了建站日期显示，请自行到footer.php修改建站日期
-<br/>7.增加页脚返回主页的按钮，方便移动端使用
-
-计划在以后的更新中加入谷歌验证码和统计代码配置页面，可能还会加入主页音频和公告栏。
+## Update
+v2.2.1 update
+<br/>This update is provided by k6o short link
+   <p>email: Gary@dtnetwork.top</p>
+<br/>Add English translation

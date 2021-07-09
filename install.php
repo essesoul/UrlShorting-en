@@ -1,33 +1,33 @@
-<title>短链接安装系统</title>
+<title>Installer</title>
 <body background="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/soxft/cdn@master/mdui/css/mdui.min.css">
   <script src="https://cdn.jsdelivr.net/gh/soxft/cdn@master/mdui/js/mdui.min.js"></script>
   <br />
-  <center><h2>短链接安装系统</h2></center>
+  <center><h2>Installer</h2></center>
   <?php
   $lockfile = "install.lock";
   if (file_exists($lockfile)) {
-    exit("<center><h3>您已经安装过了，如果需要重新安装请先删除根目录下的install.lock(如果你只需要修改内容请访问数据库修改config表<br />如有疑问请加qq群：657529886)</center></h3>");
+    exit("<center><h3>You have already installed it, if you need to reinstall, please delete install.lock in the root directory first (if you only need to modify the content, please visit the database to modify the config table<br />If you have any questions, please Contact Gary@dtnetwork.top)</center></h3>");
   }
   if (!isset($_POST['submit'])) {
     ?>
     <form action="" method="post" enctype="multipart/form-data">
       <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">数据库地址</label>
+        <label class="mdui-textfield-label">Database address</label>
         <input name="db_host" type="text" class="mdui-textfield-input" value="localhost" />
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">数据库用户名</label>
+        <label class="mdui-textfield-label">Database username</label>
         <input name="db_username" type="text" class="mdui-textfield-input" />
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">数据库名称</label>
+        <label class="mdui-textfield-label">Name database</label>
         <input name="db_name" type="text" class="mdui-textfield-input" />
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">数据库密码</label>
+        <label class="mdui-textfield-label">Database password</label>
         <input name="db_password" type="password" class="mdui-textfield-input" />
       </div>
       <br />
@@ -37,23 +37,15 @@
       <br />
       <br />
       <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">网站域名</label>
+        <label class="mdui-textfield-label">Website domain name</label>
         <input name="url" type="text" class="mdui-textfield-input" value="http://<?php echo$_SERVER['HTTP_HOST'] ?>/" />
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">网站标题(网页中所显示的)</label>
-        <input name="title1" type="text" class="mdui-textfield-input" value="星辰短域|密语" />
-      </div>
-      <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">网站标题(网页标签所显示的)</label>
-        <input name="title" type="text" class="mdui-textfield-input" value="星辰短域|密语" />
-      </div>
-      <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">短网址后需要的字母或数字个数</label>
+        <label class="mdui-textfield-label">The number of letters or numbers required after the short URL</label>
         <input name="pass" type="text" class="mdui-textfield-input" value="4" />
       </div>
       <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label">后台管理密码</label>
+        <label class="mdui-textfield-label">Manage password</label>
         <input name="passwd" type="text" class="mdui-textfield-input" value="admin" />
       </div>
       <br />
@@ -64,7 +56,7 @@
       <?php
     } else {
       if (empty($_POST['db_host']) || empty($_POST['db_username']) || empty($_POST['db_name']) || empty($_POST['db_password']) || empty($_POST['url']) || empty($_POST['title']) || empty($_POST['title1']) || empty($_POST['pass']) || empty($_POST['passwd'])) {
-        exit("<br/><center><h1>请检查您是否填写完全部内容后重试!</h1></center>");
+        exit("<br/><center><h1>Please check whether you have filled in all the content and try again!</h1></center>");
       } else {
         $db_host = $_POST['db_host'];
         $db_username = $_POST['db_username'];
@@ -76,7 +68,6 @@
         $pass = $_POST['pass'];
         $passwd = $_POST['passwd'];
       }
-      $title = $title . " - Powered by XCSOFT";
       $conn = mysqli_connect($db_host,$db_username,$db_password,$db_name);
       if ($conn) {
       $banx = "CREATE TABLE ban (
@@ -107,7 +98,7 @@
       configAdd($conn,'title',$title);
       configAdd($conn,'title1',$title1);
       configAdd($conn,'pass',$pass);
-      configAdd($conn,'strPolchoice',"123"); //url风格
+      configAdd($conn,'strPolchoice',"123"); //url style
       configAdd($conn,'passwd',$passwd);
       configAdd($conn,'wechat','true');
       configAdd($conn,'QQ','true');
@@ -117,42 +108,42 @@
       configAdd($conn,'px','25');
       configAdd($conn,'version','2.1.5');
       } else {
-        exit("<br/><center><h1>数据库连接失败!请确认数据库信息填写正确!</h1></center>");
+        exit("<br/><center><h1>Database connection failed! Please confirm that the database information is filled in correctly!</h1></center>");
       }
-      //写数据库
+      //Write database
       $config_file = "config.php";
       $config_strings = "<?php\n";
       $config_strings .= "\$conn=mysqli_connect(\"".$db_host."\",\"".$db_username."\",\"".$db_password."\",\"".$db_name."\");\n";
       $config_strings .= "\$conns=mysqli_connect(\"".$db_host."\",\"".$db_username."\",\"".$db_password."\",\"information_schema\");\n//你的数据库信息\n";
       $config_strings .= "function content(\$info)\n";
       $config_strings .= "{\n";
-      $config_strings .= "global \$conn;    //全局变量\n";
+      $config_strings .= "global \$conn;    //Global variable\n";
       $config_strings .= "\$comd = \"SELECT * FROM `config` where `type` = '\$info';\";\n";
       $config_strings .= "\$sql = mysqli_query(\$conn,\$comd);\n";
       $config_strings .= "\$arr = mysqli_fetch_assoc(\$sql);\n";
       $config_strings .= "return \$arr['content'];\n";
       $config_strings .= "}\n";
-      $config_strings .= "\$url = content(\"url\");         \n//你的网站地址,不要忘记最后的'/'\n";
-      $config_strings .= "\$title1 = content(\"title1\");   \n//网站标题(网页中所显示的)\n";
-      $config_strings .= "\$title = content(\"title\");   \n//网站标题(网页标签所显示的）\n";
-      $config_strings .= "\$pass = content(\"pass\");       \n//短网址后需要的字母或数字个数,推荐4个以上,最长20!(请填写数字)\n";
-      $config_strings .= "\$strPolchoice = content(\"strPolchoice\");   \n//短网址包含的内容,即短网址后会出现的字符\n";
-      $config_strings .= "\$passwd = content(\"passwd\");   \n//设置后台管理密码\n";
-      $config_strings .= "\$px = content(\"px\");      \n//后台短域管理页面一次显示的短域个数\n";
-      $config_strings .= "\$version = content(\"version\");      \n//当前版本号--请不要修改\n";
+      $config_strings .= "\$url = content(\"url\");         \n//Your website address, don't forget the last'/'\n";
+      $config_strings .= "\$title1 = content(\"title1\");   \n//Website title (displayed on the web page)\n";
+      $config_strings .= "\$title = content(\"title\");   \n//Website title (shown in the webpage tag)\n";
+      $config_strings .= "\$pass = content(\"pass\");       \n//The number of letters or numbers required after the short URL, 4 or more are recommended, and the longest is 20! (Please fill in the numbers)\n";
+      $config_strings .= "\$strPolchoice = content(\"strPolchoice\");   \n//The content of the short URL, that is, the characters that will appear after the short URL\n";
+      $config_strings .= "\$passwd = content(\"passwd\");   \n//Set administrative password\n";
+      $config_strings .= "\$px = content(\"px\");      \n//The number of short domains displayed on the short domain management page at one time\n";
+      $config_strings .= "\$version = content(\"version\");      \n//Current version number--please do not modify\n";
       $config_strings.= "?>";
-      //文件内容
+      //document content
       $fp = fopen($config_file,"wb");
       fwrite($fp,$config_strings);
       fclose($fp);
-      //写config.php
+      //write config.php
       $fp2 = fopen($lockfile,'w');
-      fwrite($fp2,'安装锁文件,请勿删除!');
+      fwrite($fp2,'Install the lock file, do not delete it!');
       fclose($fp2);
-      //写注册锁
-      echo "<br/><center><h1>安装成功!4s后将为您自动跳转到后台登录界面!</h1></center>";
-      echo "<br/><center><h1>你可以进入后台进入更多设置！</h1></center>";
-      echo "<br/><center><h2>非宝塔一键部署用户请注意,你还需要自己手动配置网站伪静态.网站伪静态配置信息请参考根目录下`README.md`中所写内容.</h2></center>";
+      //Write registration lock
+      echo "<br/><center><h1>The installation is successful! After 4s, you will be automatically redirected to the background login interface!</h1></center>";
+      echo "<br/><center><h1>You can enter the background to enter more settings!</h1></center>";
+      echo "<br/><center><h2>Please note that you also need to manually configure the website pseudo-static. For the website pseudo-static configuration information, please refer to the content written in the `README.md` in the root directory.</h2></center>";
       header("Refresh:4;url=\"./admin/\"");
     }
     ?>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!--
-版权归属:XCSOFT
-邮箱:contact#xcsoft.top(用@替换#)
-如有任何问题欢迎联系!
+Copyright attribution: XCSOFT
+Email: contact#xcsoft.top (replace # with @)
+If you have any questions, please feel free to contact!
 -->
 <!--
-  Secondary Developed By k6o.top
-  Contact us: Gary@dtnetwork.top
+   Secondary Developed By k6o.top
+   Contact us: Gary@dtnetwork.top
 -->
 <?php
 session_start();
@@ -16,28 +16,28 @@ $id = $_GET['id'];
 if(!preg_match("/^[a-zA-Z0-9\#]*$/",$id))
 {
   exit();
-  //判断id是否为纯英文数字，防止注入
+  //Determine whether the id is a pure English number to prevent SQL injection
 }
-//获取id
+//Get id
 if (empty($id)) {
   $status = "ok";
-  //如果没有id就跳过判断
+  //If there is no id, skip the judgment
 } else {
-  //如果有id则搜索数据库
+  //Search the database if there is an id
   $arr1 = mysqli_fetch_assoc(mysqli_query($conn,"SELECT *FROM `ban` where `content`='$ip' or `content`='$id'"));
   $type = $arr1['type'];
   if (!empty($type)) {
     echo("<br /><br /><center><img src=\"https://cdn.jsdelivr.net/gh/soxft/cdn@master/urlshorting/notice.png\" widht=\"85\"  height=\"85\" alt=\"错误\"></center>");
-    echo('<center><h1>该短域已被管理员封禁</h1></center></div>');
+    echo('<center><h1>This short URL has been banned by the administrator</h1></center></div>');
     exit();
   }
   $arr1 = mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM `information` WHERE binary `shorturl`='$id'"));
-  //binary用于强制要求大小写一样
+  //binary Used to force the same case
   $type = $arr1['type'];
   $shorturlPasswd = $arr1['passwd'];
   $information = $arr1['information'];
   $timemessage = $arr1['time'];
-  //获取基础数据
+  //Get basic data
   
   function getResult($conn,$type)
   {
@@ -55,40 +55,41 @@ if (empty($id)) {
     $ifBrowser = false;
   }
   
-  //判断用户选项
+  //Determine user options
   if (empty($type)) {
     $status = "undefind";
-    //无数据
+    //No data
   } else {
     if ($ifBrowser) {
-        //判断打开浏览器UA是否为微信或者QQ
+        //Determine whether the open browser UA is WeChat or QQ
         require_once("./app/openInBrowser.php");
         exit();
     }
 
     if(!empty($shorturlPasswd) && $_SESSION['id'] !== $id){
-        //加密 如果存在密码，且没有设置这个session  //方案2 讲session的值改为shorturl
+        //Encryption If there is a password, and the session is not set 
+        //Scenario 2, the value of session is changed to shorturl
         $_SESSION['shorturl_passwd'] = $shorturlPasswd;
         require_once "app/passwd.php";
         exit();
     }
     
     if ($type == 'shorturl') {
-      //如果数据库type读取为短域
+      //If the database type is read as a short field
       if (preg_match('/[\x{4e00}-\x{9fa5}]/u',$information) > 0) {
         $informations = parseurl($information);
-        //转换url格式（endecode）
+        //Convert url format (endecode)
       } else {
         $informations = $information;
       }
       if(getResult($conn,"jump"))
-      {  //如果打开
+      {  //If open
         require_once "app/jump.php";
         exit();
       } else {
         header("HTTP/1.1 301 Moved Permanently");
         header("Location: $informations");
-        //改为301跳转
+        //Change to 301 jump
         exit();
         }
     }
@@ -98,7 +99,7 @@ if (empty($id)) {
   }
 }
 }
-//初始判断结束,进入增加url界面
+//The initial judgment is over, enter the add url interface
 ?>
 <html>
 <head>
@@ -134,19 +135,15 @@ if (empty($id)) {
         <div class="mdui-list">
           <a href="/" class="mdui-list-item">
             <i class="mdui-list-item-icon mdui-icon material-icons">filter_none</i>
-            &emsp;主页
+            &emsp;Home
           </a>
           <a href="./help.php" class="mdui-list-item">
           <i class="mdui-list-item-icon mdui-icon material-icons">help_outline</i>
-          &emsp;帮助
+          &emsp;Help
         </a>
         <a href="./admin" class="mdui-list-item">
           <i class="mdui-list-item-icon mdui-icon material-icons">person_outline</i>
-          &emsp;后台
-        </a>
-        <a href="./about.php" class="mdui-list-item">
-          <i class="mdui-list-item-icon mdui-icon material-icons">info_outline</i>
-          &emsp;关于
+          &emsp;Backstage
         </a>
         </div>
         <div class="mdui-collapse-item ">
@@ -156,10 +153,7 @@ if (empty($id)) {
             <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
           </div>
           <div class="mdui-collapse-item-body mdui-list">
-          <a href="//blog.xsot.cn" class="mdui-list-item mdui-ripple ">星辰日记</a>
-          </div>
-          <div class="mdui-collapse-item-body mdui-list">
-          <a href="https://blog.dtnetwork.top/" class="mdui-list-item mdui-ripple ">💻鼎天网络博客</a>
+           <a href="https://blog.dtnetwork.top/" class="mdui-list-item mdui-ripple ">💻The Blog Of DTnetwork</a>
           </div>
         </div>
       </div>

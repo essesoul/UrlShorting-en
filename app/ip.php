@@ -1,6 +1,6 @@
 <?php
 function ip() {
-    //strcasecmp 比较两个字符，不区分大小写。返回0，>0，<0。
+    //strcasecmp Compare two characters, not case sensitive. return0，>0，<0。
     if(getenv('HTTP_CLIENT_IP') && strcasecmp(getenv('HTTP_CLIENT_IP'), 'unknown')) {
         $ip = getenv('HTTP_CLIENT_IP');
     } elseif(getenv('HTTP_X_FORWARDED_FOR') && strcasecmp(getenv('HTTP_X_FORWARDED_FOR'), 'unknown')) {

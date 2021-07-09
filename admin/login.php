@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');
-//包括上一个文件夹的config.php
+//Include the config.php of the previous folder
 session_start();
 define('CLIENT_ID','8us3lhiuyiOlyT3KitpWvtIwGindm5');
 if(isset($_POST['passwd']))
@@ -13,7 +13,7 @@ if(isset($_POST['passwd']))
     exit('1001');
   }
 } else {
-  //判断是否已经登录
+  //Determine whether you have logged in
   if($_SESSION['password'] == $passwd){
     header("Refresh:0;url=\"./index.php\"");
     require_once '../footer.php';
@@ -38,10 +38,9 @@ if(isset($_POST['passwd']))
       </style>
     <div class="mdui-container">
       <div class="mdui-typo">
-        <h2 class="doc-chapter-title doc-chapter-title-first">登录后台</h2>
-              <!-- 浮动标签 -->
+        <h2 class="doc-chapter-title doc-chapter-title-first">Log in</h2>
               <div class="mdui-textfield mdui-textfield-floating-label">
-                  <label class="mdui-textfield-label">密码</label>
+                  <label class="mdui-textfield-label">password</label>
                   <input id="password" type="password" class="mdui-textfield-input" />
               <center>
                   
@@ -60,8 +59,8 @@ if(isset($_POST['passwd']))
     function login(){
       passwd = $('#password').val();
       $('#btn').attr('disabled',true);
-      $('#btn').text('登陆中...')
-      //构建ajax请求
+      $('#btn').text('Logging in...')
+      //Build an ajax request
       $.ajax({
         method: 'post',
         timeout: 10000,
@@ -74,13 +73,13 @@ if(isset($_POST['passwd']))
           if(data == '200')
           {
             mdui.snackbar({
-              message: '登陆成功,跳转中!',
+              message: 'Successful login, jumping!',
               position: 'right-top'
             });
             setTimeout("window.location='index.php'",2000)
           }else{
             mdui.snackbar({
-              message: '密码错误!',
+              message: 'wrong password!',
               position: 'right-top'
             });
             $('#btn').removeAttr('disabled');
@@ -93,7 +92,7 @@ if(isset($_POST['passwd']))
           if(textStatus == 'timeout')
           {
             mdui.snackbar({
-            message: '请求超时!',
+            message: 'timeout!',
             position: 'right-top'
           });
           $('#btn').removeAttr('disabled');

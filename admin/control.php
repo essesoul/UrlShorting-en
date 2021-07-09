@@ -1,44 +1,44 @@
 <html>
 <head>
-    <title>短域管理</title>
+    <title>Short domain management</title>
     <?php
     require_once("./header.php");
     $p = $_GET['p'];
     if(empty($p) || $p < "1")
     {
-      $p = "1";  //如果没有page那就定义一个默认的page  = 0
+      $p = "1";  //If there is no page then define a default page  = 0
     }
     $page  = ($p - 1) * $px;
-    //计算出第几条数据
+    //Calculate the number of data
   $mysql = "select * from `TABLES` where `TABLE_NAME`='information';";
   $result = mysqli_query($conns,$mysql);
   $arr = mysqli_fetch_assoc($result);
-  $page_allx =  $arr['TABLE_ROWS'];  //所有数据
+  $page_allx =  $arr['TABLE_ROWS'];  //All data
  if($page_allx >= $px)
  {
   if($page_allx % $px == 0){
-    $page_all = $page_allx / $px; // 计算总共页数  
+    $page_all = $page_allx / $px; // Calculate the total number of pages  
   }else{
     $page_all = ($page_allx - ($page_allx % $px)) / $px;
   }
  }else{
    $page_all = 1;
  }
-    echo "<h4>TIP:因字符原因,表格显示不全,手机用户可以向左滑动看到更多信息,电脑用户翻阅到表格最下端拖动控制条.</h4>";
+    echo "<h4>TIP:Due to the characters, the table is not fully displayed.Mobile users can swipe to the left to see more information, and computer users can scroll to the bottom of the table and drag the control bar.</h4>";
     echo "<br /><center><div class=\"mdui-table-fluid\">
                         <table class=\"mdui-table mdui-table-hoverable\">
                             <tr>
-                                <th>短域</th>
-                                <th>内容</th>
-                                <th>种类</th>
-                                <th>ip</th>
-                                <th>密码</th>
-                                <th>时间</th>
-                                <th>短域状态</th>
-                                <th>IP状态</th>
-                                <th>管理</th>
+                            <th>Short domain</th>
+                            <th>Content</th>
+                            <th>Type</th>
+                            <th>ip</th>
+                            <th>Password</th>
+                            <th>Time</th>
+                            <th>Short domain status</th>
+                            <th>IP status</th>
+                            <th>Management</th>
                             </tr>";
-// 表格开头
+// Beginning of table
   $comd = "SELECT * FROM `information` order by time DESC limit $page,$px";
     $sql = mysqli_query($conn,$comd);
     while ($row = mysqli_fetch_object($sql)) {
@@ -47,7 +47,7 @@
         $arr2 = mysqli_fetch_assoc($count1);
         $type = $arr2['type'];
         if (empty($type)) {
-            $check = "正常";
+            $check = "normal";
         } else {
             $check = "BAN";
         }
@@ -56,10 +56,10 @@
         $arr3 = mysqli_fetch_assoc($count2);
         $type2 = $arr3['type'];
         if (empty($type2)) {
-            $check2 = "正常";
+            $check2 = "normal";
         } else {
             $check2 = "BAN";
-        }    //判断是否已经被ban
+        }    //Determine whether it has been banned
         $information = mb_strlen($row->information) >= 20 ? mb_substr($row->information,0,20) : $row->information;
             echo "
       <tr>
@@ -73,12 +73,12 @@
         <td>$check2</td>
         <td>
           <a href=\"./processing.php?shorturl=$row->shorturl&&type=del\" class=\"mdui-btn mdui-btn-raised mdui-ripple\">删除</a>";
-if($check=="正常"){
+if($check=="normal"){
   echo "<a href=\"./processing.php?shorturl=$row->shorturl&&type=domain\" class=\"mdui-btn mdui-btn-raised mdui-ripple\">封短域</a>";
 }else{
   echo "<a href=\"./processing.php?content=$row->shorturl&&type=cancel&&from=control\" class=\"mdui-btn mdui-btn-raised mdui-ripple\">解短域</a>";
 }
-if($check2=="正常"){
+if($check2=="normal"){
   echo "<a href=\"./processing.php?ip=$row->ip&&type=ip\" class=\"mdui-btn mdui-btn-raised mdui-ripple\">封ip</a>";
 }else{
   echo "<a href=\"./processing.php?content=$row->ip&&type=cancel&&from=control\" class=\"mdui-btn mdui-btn-raised mdui-ripple\">解IP</a>";
@@ -89,7 +89,7 @@ if($check2=="正常"){
     
     $page_next = $p+1;
     $page_last = $p-1;
-    //计算一下上一页或者下一页的page
+    //Calculate the page of the previous or next page
     echo "<br />";
     if($p != 1){
       echo  "<a href=\"./control.php?p=$page_last\" class=\"mdui-btn mdui-btn-raised mdui-ripple\">上一页</a>";
@@ -98,7 +98,7 @@ if($check2=="正常"){
     if($p != $page_all){
       echo "<a href=\"./control.php?p=$page_next\" class=\"mdui-btn mdui-btn-raised mdui-ripple\">下一页</a>"; 
     }
-    //按钮跳转
+    //Button jump
     echo "<br />";
     ?>
 </body>

@@ -6,10 +6,10 @@ if(empty($_GET['code'])){
   $arr = explode(",",mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `config` WHERE type='xoauth'"))['content']);
   if(empty($arr[0]))
   {
-    //防止数据为空的问题
+    //Prevent the problem of empty data
     $arr = array();
   }
-  $list = ''; //初始化列表
+  $list = ''; //Initialization list
   for ($i = 0; $i <= count($arr)-1; $i++)
   {
     $user = $arr[$i];
@@ -28,31 +28,30 @@ if(empty($_GET['code'])){
   {
     $list = "<li class='mdui-list-item'>
           <div class='mdui-list-item-content'>
-            <div class='mdui-list-item-title'>未找到授权记录</div>
+            <div class='mdui-list-item-title'>Authorization record not found</div>
           </div>
         </li>";
   }
   ?>
-  <title>第三方登录 - 星辰短域|密语</title>
+  <title>Sign in with</title>
   <div style="Height:20px"></div>
     <div class="mdui-container">
-    <h2 style="font-weight:400">操作</h2>
+    <h2 style="font-weight:400">operating</h2>
       <ul class="mdui-list">
         <!-- 文档 -->
       <li onclick="window.location.href='<?php echo "http://9420.ltd/v1/oauth.php?response_type=code&client_id=". CLIENT_ID ."&redirect_uri=".$url."admin/oauth.php" ?>'" class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons">assessment</i>
-        <div class="mdui-list-item-content">添加新用户</div>
+        <div class="mdui-list-item-content">add</div>
       </li>
     </ul>
   </div>
   <div class="mdui-container">
-  <h2 style="font-weight:400">第三方登录</h2>
-  <p style='color:grey;font-size:15px;'>第三方授权登陆列表,使用星辰oauth</p>
+  <h2 style="font-weight:400">Sign in with</h2>
+  <p style='color:grey;font-size:15px;'>Third-party authorized login list, use Xingchen oauth</p>
     <ul class="mdui-list">
     <?php echo $list ?>
     </ul>
   </div>
-  <!-- 加载 -->
   <div id='loading' style="position: absolute;margin: auto;top: 0;left: 0;right: 0;bottom: 0;display: none;width: 50px;height: 50px" class="mdui-spinner mdui-spinner-colorful"></div>
   
   <script>
@@ -60,13 +59,13 @@ if(empty($_GET['code'])){
   
   function del(user)
   {
-    mdui.confirm('你确定要取消授权吗?', function(){
+    mdui.confirm('Are you sure you want to cancel authorization?', function(){
       del_go(user)
     });
   }
   
   function del_go(user){
-    $.showOverlay(); //遮罩
+    $.showOverlay(); 
     $('#loading').show();
     
     $.ajax({
@@ -81,28 +80,28 @@ if(empty($_GET['code'])){
             data = eval('(' + data + ')');
             if (data['code'] == '200') {
                 mdui.snackbar({
-                    message: '取消授权成功',
+                    message: 'Cancel authorization successfully',
                     position: 'right-top',
                 });
-                setTimeout(function () {$('#' + user + '').remove();}, 100);  //jquery移除指定
+                setTimeout(function () {$('#' + user + '').remove();}, 100);  //jquery remove designation
             } else {
                 mdui.snackbar({
-                    message: '出现错误<br/>错误信息:' + data['msg'],
+                    message: 'An error occurred<br/>error message:' + data['msg'],
                     position: 'right-top',
                 });
             }
         },
         complete: function(xhr, textStatus) {
-          setTimeout(function () {$.hideOverlay();}, 100); //隐藏遮罩
+          setTimeout(function () {$.hideOverlay();}, 100); 
           $('#loading').hide();
             if (textStatus == 'timeout') {
                 mdui.snackbar({
-                    message: '请求超时!',
+                    message: 'Tmie out!',
                     position: 'right-top',
                 });
             } else if (textStatus !== 'success') {
                 mdui.snackbar({
-                    message: '出现未知错误,错误代码:' + textStatus,
+                    message: 'An unknown error occurred, error code:' + textStatus,
                     position: 'right-top',
                 });
             }

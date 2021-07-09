@@ -1,5 +1,5 @@
 <?php
-//对接 腾讯网址安全检测平台
+//Docking with Tencent website security detection platform
 function doCurl($url, $data = array(), $header = array(), $referer = '', $timeout = 30) {
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
@@ -16,7 +16,7 @@ function doCurl($url, $data = array(), $header = array(), $referer = '', $timeou
   curl_close($ch);
   return $response;
 }
-// 调用
+// transfer
 function urlsafe($url){
 $url = 'https://cgi.urlsec.qq.com/index.php?m=check&a=check&url=' . $url;
 $data = array();
@@ -35,12 +35,12 @@ $ip_long = array(
 );
 $rand_key = mt_rand(0, 9);
 $ip = long2ip(mt_rand($ip_long[$rand_key][0], $ip_long[$rand_key][1]));
-//随机ip
+//Random ip
 $header = array(
   "CLIENT-IP: $ip",
   "X-FORWARDED-FOR: $ip"
 );
-//出问题了不知道为什么
+//unknown mistake
 $referer = 'https://urlsec.qq.com/';
 $response = doCurl($url, $data, $header, $referer, 5);
 $data = substr($response, 1, -1);

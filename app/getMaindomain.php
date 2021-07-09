@@ -1,19 +1,19 @@
 <?php
 function getTopHost($url) {
   $url = strtoupper($url);
-  //首先转成小写
+  //First convert to lowercase
   $hosts = parse_url($url);
   $host = $hosts['host'];
-  //查看是几级域名
+  //Check the level of domain name
   $data = explode('.',$host);
   $n = count($data);
-  //判断是否是双后缀
+  //Determine whether it is a double suffix
   $preg = '/[\w].+\.(com|net|org|gov|edu)\.cn$/';
   if (($n > 2) && preg_match($preg,$host)) {
-    //双后缀取后3位
+    //Double suffix takes the last 3 digits
     $host = $data[$n-3].'.'.$data[$n-2].'.'.$data[$n-1];
   } else {
-    //非双后缀取后两位
+    //Non-double suffix takes the last two digits
     $host = $data[$n-2].'.'.$data[$n-1];
   }
   return $host;

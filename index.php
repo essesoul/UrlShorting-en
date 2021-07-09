@@ -1,27 +1,27 @@
 <?php
 if (!file_exists("install.lock")) {
     header("Refresh:0;url=\"./install.php\"");
-    exit("正在跳转到安装界面...");
+    exit("Jumping to the installation interface...");
 }
-//检测是否已经安装
+//Check if it has been installed
 require_once "header.php";
 require_once "config.php";
-//开始判断处理
+//Start judgment processing
 if ($status == "undefind" || empty($status)) {
 ?>
   <br/><center><br/><img src="https://3gimg.qq.com/tele_safe/safeurl/img/notice.png" widht="85"  height="85" alt="错误"></center>
-  <center><h2>❌你访问的页面不存在!</h2></center>
+  <center><h2>❌The page you visited does not exist!</h2></center>
 <?php
     require_once "footer.php";
     exit();
 }
 if ($status == "passmessage") {
-    //如果数据库type读取为密语 
+    //If the database type is read as a passphrase 
 ?>
       <br />
       <div class="mdui-card.mdui-card-media-covered-transparent">
         <div class="mdui-card-primary">
-          <div class="mdui-card-primary-subtitle"><?php echo date('Y年m月d日 H时i分s秒',$timemessage) ?></div>
+          <div class="mdui-card-primary-subtitle"><?php echo date('Y year m month d day H hour i minute s second',$timemessage) ?></div>
             <center>
               <div class="mdui-card-primary-title" style="word-break:break-all;">
                 「<?php echo htmlspecialchars($information)?>」
@@ -35,23 +35,23 @@ if ($status == "passmessage") {
       require_once "footer.php";
       exit();
     }
-    //至此显示密语结束
-    //因为为了解决速度问题，所以url的跳转放置显示css直之前，即header.php开头部分  
-    unset($_SESSION['shorturl']);  //删除shorturl的session submit里面跳转到shorturl.php的那个session
-    //unset($_SESSION['passwd']); //删除上一次的短域session
+    //At this point, the end of the passphrase is displayed
+    //Because in order to solve the speed problem, the jump of the url is placed directly before the display of css, that is, the beginning of header.php
+    unset($_SESSION['shorturl']);  //Delete the session of shorturl's session submit and jump to the session of shorturl.php
+    //unset($_SESSION['passwd']); //Delete the last short domain session
 ?>
 <br/>
 <div class="mdui-container doc-container">
     <div class="mdui-typo">
-        <h2>短域</h2>
+        <h2>Short URL</h2>
         <div class="mdui-textfield">
-            <textarea id="content" class="mdui-textfield-input" type="text" placeholder="*请输入长链接或密语"></textarea>
+            <textarea id="content" class="mdui-textfield-input" type="text" placeholder="*Please enter a long link or passphrase"></textarea>
         </div>
         <div style="float: left; width: 49.2%;" class="mdui-textfield">
-            <input id="shorturl" class="mdui-textfield-input" type="text" placeholder="请输入自定义短链(可选)"/>
+            <input id="shorturl" class="mdui-textfield-input" type="text" placeholder="Please enter a custom short chain (optional)"/>
         </div>
         <div style="float: right; width: 49.2%;" class="mdui-textfield">
-            <input id="passwd" class="mdui-textfield-input" type="text" placeholder="请输入加密密码(可选)"/>
+            <input id="passwd" class="mdui-textfield-input" type="text" placeholder="Please enter the encryption password (optional)"/>
         </div>
         
         <button onClick="submit();" id="submit" class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple">
@@ -59,12 +59,12 @@ if ($status == "passmessage") {
         </button>
         <label class="mdui-radio">
           <input onclick='change("shorturl")' type="radio" name="type" id="type"  value="shorturl" checked />
-          <i class="mdui-radio-icon"></i>短域
+          <i class="mdui-radio-icon"></i>Short URL
         </label>
         &emsp;&emsp;
         <label class="mdui-radio">
           <input onclick='change("passmessage")' type="radio" name="type" id="type"  value="passmessage" />
-          <i class="mdui-radio-icon"></i>密语
+          <i class="mdui-radio-icon"></i>Passphrase
         </label>
     </div>
 </div>
@@ -105,14 +105,14 @@ function submit(){
       if(data == 200)
       {
         mdui.snackbar({
-         message: '✔️缩短成功!',
+         message: '✔️Shorten success!',
          position: 'right-top',
          timeout: 0
        });
        window.setTimeout("window.location='shorturl.php'",2000);
       }else{
         mdui.snackbar({
-         message: '❌缩短失败: <br/>提示信息: ' + data,
+         message: '❌Shortening failed: <br/>Prompt message: ' + data,
          position: 'right-top'
        });
       }
@@ -124,7 +124,7 @@ function submit(){
       if(textStatus == 'timeout')
       {
         mdui.snackbar({
-         message: '❌请求超时!',
+         message: '❌Request timed out!',
          position: 'right-top'
        });
       }
@@ -135,14 +135,14 @@ function submit(){
 </script>
 <div class="mdui-container doc-container">
     <div class="mdui-typo">
-         <h2>帮助</h2>
-         1.输入短域请加上http(s)://<br />
-         2.中文域名请手动Punycode编码后再使用<br />
-         3.网址最长支持1000字符<br />
-         4.密语最长支持3000字符(合1000汉字)<br />
-         5.手动填写短域以及密码为可选项目<br />
-         6.密码限制2-20位(数字密码组合)/短域限制输入<?php echo $pass ?>位<br/>
-         7.其余详见菜单-帮助界面
+         <h2>Help</h2>
+         1. Enter the short domain, please add http(s)://<br />
+         2. Please manually encode the Chinese domain name with Punycode before using<br />
+         3. The URL supports up to 1000 characters<br />
+         4. The longest support for the secret language is 3000 characters (1000 Chinese characters)<br />
+         5. Manually fill in the short field and password as optional items<br />
+         6. Password limit 2-20 digits (digital password combination) / short domain limit input <?php echo $pass ?> digits<br/>
+         7. For the rest, please refer to the menu-help interface
     </div>
 </div>
 <?php require_once "footer.php"; ?>

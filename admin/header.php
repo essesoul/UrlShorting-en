@@ -1,18 +1,18 @@
 <!--
-版权归属:XCSOFT
-修改时间:2019/06/28
-邮箱:contact#xcsoft.top(用@替换#)
-如有任何问题欢迎联系!
+Copyright attribution: XCSOFT
+Modification time: 2019/06/28
+Email: contact#xcsoft.top (replace # with @)
+If you have any questions, please feel free to contact!
 -->
 <!--
-  Secondary Developed By k6o.top
-  Contact us: Gary@dtnetwork.top
+   Secondary Developed By k6o.top
+   Contact us: Gary@dtnetwork.top
 -->
 <?php
 require_once('../config.php');
-//包括上一个文件夹的config.php
+//Include the config.php of the previous folder
 session_start();
-//开启session
+//Open session
 $password = $_SESSION['password'];
 ?>
 <head>
@@ -33,20 +33,19 @@ $password = $_SESSION['password'];
   <body background="https://cdn.jsdelivr.net/gh/soxft/cdn@1.9/urlshorting/background.png">
    <?php
    if ($_SESSION['password'] !== $passwd) {
-    //判断是否登录
+    //Determine whether to log in
     header("Refresh:0;url=\"./login.php\"");
     exit();
 }
 ?>
     <div class="mdui-tab mdui-tab-full-width mdui-tab-centered">
-        <a href="./index.php" class="mdui-ripple">管理首页</a>
+        <a href="./index.php" class="mdui-ripple">Manage homepage</a>
         <a href="./ban.php" class="mdui-ripple">BAN</a>
-        <a href="./control.php" class="mdui-ripple">短域管理</a>
-        <a href="./preferences.php" class="mdui-ripple">偏好设置</a>
-        <a href="./oauth.php" class="mdui-ripple">第三方登录</a>
-    <!-- <a href="./update.php" class="mdui-ripple">检查更新</a> -->
-        <a href="./logout.php" class="mdui-ripple">退出登录</a>
-        <a href="../index.php" class="mdui-ripple">返回前台</a>
+        <a href="./control.php" class="mdui-ripple">Short domain management</a>
+        <a href="./preferences.php" class="mdui-ripple">Preferences</a>
+        <a href="./oauth.php" class="mdui-ripple">oauth</a>
+        <a href="./logout.php" class="mdui-ripple">sign out</a>
+        <a href="../index.php" class="mdui-ripple">Back</a>
     </div>
     
    

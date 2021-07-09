@@ -6,7 +6,7 @@ $passmessage = $_POST['message'];
 $shorturl = $_POST['shorturl'];
 $passwd = $_POST['passwd'];
 
-//替换原网址中的&&防止出错
+//Replace the && in the original URL to prevent errors
 if (empty($domain) && empty($passmessage)) {
   $data = array(
     'code' => '1001'
@@ -14,7 +14,7 @@ if (empty($domain) && empty($passmessage)) {
 } else {
 
   if (!empty($domain)) {
-    //如果判断为短域 (短域优先) 
+    //If judged as short domain (short domain first) 
     $arr = Urlshorting($domain, "shorturl", $passwd,$shorturl);
     if ($arr[0] !== 200) {
       $data = array(
@@ -35,7 +35,7 @@ if (empty($domain) && empty($passmessage)) {
       }
     }
   } else {
-    //如果判断为密语
+    //If it is judged as a passphrase
     $arr = Urlshorting($passmessage, "passmessage", $passwd, $shorturl);
     if ($arr[0] !== 200) {
       $data = array(

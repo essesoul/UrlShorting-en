@@ -1,14 +1,14 @@
 <?php
 /*
-  第三方登录 Ajax处理地址
+  Third-party login Ajax processing address
 */
     session_start();
     require_once "../config.php";
     header('Content-type:text/json');
     header('Access-Control-Allow-Origin:*');
-    //发信验证措施
+    //Letter verification measures
     if ($_SESSION['password'] !== $passwd) {
-      //判断是否登录
+      //Determine whether to log in
        $data = array('code' => 444,'msg' => 'Unauthorized access');
     }
     $method = $_POST['method'];

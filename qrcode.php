@@ -1,6 +1,6 @@
 <?php
 if(empty($arr['shorturl'])){
-    $value = $url . $shorturl; //二维码内容 
+    $value = $url . $shorturl; //QR code content 
 }else{
     $value = $arr['shorturl'];
 }
@@ -13,9 +13,9 @@ if(empty($arr['shorturl'])){
 $qrcodename='./qrcode/' . $name  . '.png';
 include './app/phpqrcode.php';    
   
-$errorCorrectionLevel = 'L';//容错级别   
-$matrixPointSize = 5;//生成图片大小   
-//生成二维码图片   
+$errorCorrectionLevel = 'L';//Fault tolerance level  
+$matrixPointSize = 5;//Generated image size   
+//Generate QR code image  
 QRcode::png($value,$qrcodename,$errorCorrectionLevel,$matrixPointSize,2);   
 echo '<center><img src=' . $qrcodename . '></center>'; 
 echo("<br/>");

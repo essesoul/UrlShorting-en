@@ -9,16 +9,16 @@
   $content=$arr['content'];
   if (empty($content))
   {
-    echo("<center><h2>暂时没有更多信息</h2></center>");
+    echo("<center><h2>No more information at the moment</h2></center>");
     require_once("../footer.php");
     exit();
   }else{
-    echo "已被ban列表:<br /><br /><center><div class=\"mdui-table-fluid\">
+    echo "Has been banned:<br /><br /><center><div class=\"mdui-table-fluid\">
                         <table class=\"mdui-table mdui-table-hoverable\">
                             <tr>
-                                <th>种类</th>
-                                <th>IP或短域</th>
-                                <th>状态</th>
+                                <th>species</th>
+                                <th>IP or short domain</th>
+                                <th>status</th>
                             </tr>";
   }
   $comd = "SELECT * FROM `ban` order by time DESC";

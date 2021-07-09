@@ -1,6 +1,6 @@
 <?php
 /*
-  第三方登录回调地址
+  Third-party login callback address
 */
   require_once "../config.php";
   define('CLIENT_ID','8us3lhiuyiOlyT3KitpWvtIwGindm5');
@@ -9,7 +9,7 @@
   $code = $_GET['code'];
   if(empty($code))
   {
-    echo "<h2>非法访问</h2>";
+    echo "<h2>Unauthorized access</h2>";
     header("Refresh:2;URL='../admin/login.php'");
   }
   
@@ -23,18 +23,18 @@
     $arr = explode(",",mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `config` WHERE type='xoauth'"))['content']);
     if(empty($arr[0]))
     {
-      //防止数据为空的问题
+      //Prevent the problem of empty data
       $arr = array();
     }
     if(array_search($username,$arr) !== false){
-      //已有存在的用户
+      //Existing users
       $_SESSION['password'] = $passwd;
       header("Refresh:0;URL='../admin'");
     } else {
-      echo "<h2>未知的用户,请先在后台->第三方登录添加该用户!</h2>";
+      echo "<h2>Unknown user, please add the user in the background -> third party login first!</h2>";
       header("Refresh:2;URL='../admin/login.php'");
     }
   } else{
-    echo "<h2>出现未知错误!错误代码:" . $arr['code']."</h2>";
+    echo "<h2>An unknown error occurred! Error code:" . $arr['code']."</h2>";
     header("Refresh:2;URL='../admin/login.php'");
   }

@@ -1,7 +1,7 @@
 <html>
                 <head>
                   <meta charset="UTF-8">
-                  <title>请使用浏览器打开</title>
+                  <title>Please use a browser to open</title>
                   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/soxft/cdn@latest/urlshorting/favicon.ico" media="screen" />
                   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
                   <meta content="yes" name="apple-mobile-web-app-capable">
@@ -22,17 +22,17 @@
                 </head>
                 <body>
                   <div class="top-bar-guidance">
-                    <p>点击右上角<img src="//gw.alicdn.com/tfs/TB1xwiUNpXXXXaIXXXXXXXXXXXX-55-55.png" class="icon-safari"> <span id="openm">浏览器打开</span></p>
-                    <p>可以继续浏览本站哦~</p>
+                    <p>Click on the upper right corner<img src="//gw.alicdn.com/tfs/TB1xwiUNpXXXXaIXXXXXXXXXXXX-55-55.png" class="icon-safari"> <span id="openm">浏览器打开</span></p>
+                    <p>You can continue to browse this site~</p>
                   </div>
                   <div class="app-download-tip">
-                    <span class="guidance-desc">或者复制本站网址自行打开</span>
+                    <span class="guidance-desc">Or copy the website URL to open it yourself</span>
                   </div>
                   <script src="https://cdn.jsdelivr.net/gh/soxft/cdn@master/jquery/jquery.min.js"></script>
                   <script src="https://cdn.jsdelivr.net/gh/soxft/cdn@1.9/urlshorting/clipboard.min.js"></script>
                   <script src="https://cdn.jsdelivr.net/gh/soxft/cdn@1.9/mdui/js/mdui.min.js"></script>
                   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/soxft/cdn@1.9/mdui/css/mdui.min.css">
-                  <a data-clipboard-text="<?php echo $url . $id ?>" class="app-download-btn">点此复制本站网址</a>
+                  <a data-clipboard-text="<?php echo $url . $id ?>" class="app-download-btn">Click here to copy the website URL</a>
                   <script type="text/javascript">
                     new ClipboardJS(".app-download-btn");
                     $(".app-download-btn").click(function() {

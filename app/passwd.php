@@ -1,9 +1,9 @@
 <?php
 /*
-    加密页面
-    Date:20200723
-    Author : XCSOFT 
-    提供session实现
+    Encrypted page
+     Date:20200723
+     Author: XCSOFT
+     Provide session implementation
 */
   session_start(); 
   if(isset($_POST['passwd']))
@@ -27,7 +27,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/soxft/cdn@master/mdui/css/mdui.min.css">
         <script src="https://cdn.jsdelivr.net/gh/soxft/cdn@master/mdui/js/mdui.min.js"></script>
         <title>
-            加密页面 - Powered by XCSOFT
+        Encrypted page
         </title>
     </head>
     <body>
@@ -39,31 +39,30 @@
                     </button>
                 </div>
             <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title">请输入密码</div>
+                <div class="mdui-card-primary-title">Please enter the password</div>
                 <div class="mdui-card-primary-subtitle">Please Input Passwd</div>
             </div>
             <div class="mdui-card-content">
                 <div class="mdui-textfield">
-                    <input class="mdui-textfield-input" id="passwd" type="password" placeholder="请输入密码"/>
+                    <input class="mdui-textfield-input" id="passwd" type="password" placeholder="Please enter the password"/>
                 </div>
                 <br>
             </div>
             <div class="mdui-card-actions">
                 <center>
-                    <button id="btn" onclick="submit()" class="mdui-btn mdui-ripple mdui-btn-dense">确认</button>
+                    <button id="btn" onclick="submit()" class="mdui-btn mdui-ripple mdui-btn-dense">confirm</button>
                 </center>
             </div>
         </div>
     </div>
     <script>
-    console.log("\n %c 星辰短域|密语 %c Powered by XCSOFT | xsot.cn ","color:#444;background:#eee;padding:5px 0;", "color:#eee;background:#444;padding:5px 0;");
     var $ = mdui.JQ;
 	function submit()
 	{
 	    passwd = $('#passwd').val();
 	    $('#btn').attr('disabled',true);
-      $('#btn').text('处理中...');
-	    //构建ajax请求
+      $('#btn').text('Processing...');
+	    //Build an ajax request
 	    $.ajax({
 	       method: 'post',
 	       url: 'app/passwd.php',
@@ -77,25 +76,25 @@
 	           if(data == 200)
 	           {
 	              mdui.snackbar({
-                    message: '密码正确,跳转中..',
+                    message: 'Password is correct, redirecting..',
                     position: 'right-top'
                 }); 
                 window.setTimeout("window.location.reload();", 3000);
 	           }else{
 	               mdui.snackbar({
-                    message: '密码错误!',
+                    message: 'Wrong password!',
                     position: 'right-top'
                 });
 	           }
 	       },
 	       complete: function(xhr,status)
 	       {
-	           $('#btn').text('确认');
+	           $('#btn').text('confirm');
 	           $('#btn').removeAttr('disabled')
 	           if(status == 'timeout')
 	           {
 	            mdui.snackbar({
-                    message: '请求超时!',
+                    message: 'Request timed out!',
                     position: 'right-top'
                 });
 	           }

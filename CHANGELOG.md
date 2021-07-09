@@ -1,3 +1,10 @@
+## 更新
+v2.2.1更新
+<br/>此次更新由k6o短链接提供
+  <p>email: Gary@dtnetwork.top</p>
+<br/>增加英文翻译
+
+
 v2.2.0更新
 <br/>此次更新由k6o短链接提供
   <p>email: Gary@dtnetwork.top</p>

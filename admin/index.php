@@ -1,26 +1,18 @@
 <?php require_once "header.php"; ?>
-<title>首页</title>
-<div style="Height:20px"></div>
+<title>Home</title>
 <div class="mdui-container">
-  <h2 style="font-weight:400">官方信息</h2>
-  <ul class="mdui-list">
-    <li id="officalInfo" style="font-weight:400" class="mdui-list-item mdui-ripple">Loading...</li>
-  </ul>
-</div>
-</div>
-<div class="mdui-container">
-  <h2 style="font-weight:400">系统信息</h2>
+  <h2 style="font-weight:400">system message</h2>
   <ul class="mdui-list">
     <li class="mdui-list-item mdui-ripple">
       <i class="mdui-list-item-icon mdui-icon material-icons">grain</i>
       <div class="mdui-list-item-content">
-        短域: <?php getNum($conns,'information') ?>个
+      Short domain: <?php getNum($conns,'information') ?>
       </div>
     </li>
     <li class="mdui-list-item mdui-ripple">
       <i class="mdui-list-item-icon mdui-icon material-icons">not_interested</i>
       <div class="mdui-list-item-content">
-        BAN: <?php getNum($conns,'ban') ?>个
+        BAN: <?php getNum($conns,'ban') ?>
       </div>
     </li>
     <li class="mdui-list-item mdui-ripple">
@@ -32,19 +24,19 @@
     <li class="mdui-list-item mdui-ripple">
       <i class="mdui-list-item-icon mdui-icon material-icons">airplay</i>
       <div class="mdui-list-item-content">
-        系统: <?PHP echo php_uname('s'); ?>
+      system: <?PHP echo php_uname('s'); ?>
       </div>
     </li>
     <li class="mdui-list-item mdui-ripple">
       <i class="mdui-list-item-icon mdui-icon material-icons">web</i>
       <div class="mdui-list-item-content">
-        服务端: <?PHP echo $_SERVER['SERVER_SOFTWARE']; ?>
+        server: <?PHP echo $_SERVER['SERVER_SOFTWARE']; ?>
       </div>
     </li>
     <li class="mdui-list-item mdui-ripple">
       <i class="mdui-list-item-icon mdui-icon material-icons">dns</i>
       <div class="mdui-list-item-content">
-        主机名: <?PHP echo php_uname('n');  ?>
+        host name: <?PHP echo php_uname('n');  ?>
       </div>
     </li>
   </ul>
